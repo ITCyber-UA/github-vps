@@ -1,0 +1,35 @@
+{"ngrok": "2CffC4EX2Ssv3zXPNtWDMGFgEsX_581XgFGBDNMSJ8oAxvmrf"}
+
+https://stackoverflow.com/questions/56435547/how-do-i-re-run-github-actions
+
+https://www.reddit.com/r/github/comments/sndbxt/how_to_run_a_github_action_every_6_hours/
+https://github.com/simonw/simonw/blob/main/.github/workflows/build.yml
+
+
+https://github.com/who0ps/FreeVPS
+https://github.com/govinss/shakrdp
+https://github.com/dasherBH/Windows2019RDP-US
+
+shakrdp
+https://www.onlinehacking.in/how-to-create-free-windows-rdp-vps-with-github
+Windows2019RDP
+https://techmody.io/create-vps-windows-7gb-ram-free-from-github/
+
+
+------------------
+------others------
+------------------
+cari cloud shell like free vps 
+
+https://github.com/a2nk/ubuntukiller
+
+https://mybinder.org/
+
+https://github.com/a2nk/xrdp
+
+https://intel.ly/3NglOEg
+
+https://github.com/a2nk/get-xmr
+https://xkx.me/
+https://minexmr.com/dashboard   (closed)   
+https://p2pool.io/#pool     (new)
