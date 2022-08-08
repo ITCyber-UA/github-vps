@@ -33,3 +33,7 @@ https://github.com/a2nk/get-xmr
 https://xkx.me/
 https://minexmr.com/dashboard   (closed)   
 https://p2pool.io/#pool     (new)
+
+
+binder (Build your own mybinder server free 754 GB ram 72 CPU's for FREE)
+https://mybinder.org/v2/gh/jupyterhub/jupyter-remote-desktop-proxy/HEAD?urlpath=desktop
