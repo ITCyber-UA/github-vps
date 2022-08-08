@@ -6,6 +6,7 @@ https://www.reddit.com/r/github/comments/sndbxt/how_to_run_a_github_action_every
 https://github.com/simonw/simonw/blob/main/.github/workflows/build.yml
 
 
+windows server:
 https://github.com/who0ps/FreeVPS
 https://github.com/govinss/shakrdp
 https://github.com/dasherBH/Windows2019RDP-US
@@ -14,6 +15,9 @@ shakrdp
 https://www.onlinehacking.in/how-to-create-free-windows-rdp-vps-with-github
 Windows2019RDP
 https://techmody.io/create-vps-windows-7gb-ram-free-from-github/
+
+linux server:
+https://github.com/airsquared/reverse-linux-vnc-github-actions
 
 
 ------------------
