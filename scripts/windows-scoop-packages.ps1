@@ -88,7 +88,6 @@ clink set autosuggest.enable true
 clink set history_io 1
 clink set clink.autoupdate false
 
-exit
 
 scoop install gh
 # gh auth login
@@ -108,6 +107,7 @@ scoop install extras/windirstat
 sudo choco install winbtrfs
 sudo choco install ext2fsd
 # ::#endregion
+exit
 
 # ::#region scoop directory search links
 scoop install scoop-search
