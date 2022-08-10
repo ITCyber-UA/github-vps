@@ -111,7 +111,7 @@ sudo choco install ext2fsd
 # ::#region scoop directory search links
 scoop install scoop-search
 wget https://raw.githubusercontent.com/zhoujin7/scoop-search/master/scoopSearch.ps1
-Install-Module ps2exe
+Install-Module -Force ps2exe 
 Invoke-ps2exe .\scoopSearch.ps1 .\scoopSearch.exe
 mv .\scoopSearch.exe $env:USERPROFILE%\scoop\shims\scoopSearch.exe
 echo path = $env:USERPROFILE\scoop\shims\scoopSearch.exe | tee scoop\shims\scoopSearch.shim
