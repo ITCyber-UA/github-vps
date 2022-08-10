@@ -18,6 +18,7 @@ jobs:
           name: PATH
           value: $env:PATH;$env:USERPROFILE\scoop\shims
       - name: Scoop add buckets and install packages
+        shell: pwsh
         run: |
           .\scripts\windows-scoop-packages.ps1
       - name: Download
