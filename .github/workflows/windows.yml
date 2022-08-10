@@ -8,6 +8,11 @@ jobs:
   rdp:
     runs-on: windows-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          path: main
+
       - name: Install Scoop Package Manager
         run: |
           irm get.scoop.sh -outfile 'install.ps1'
@@ -17,13 +22,10 @@ jobs:
         with:
           name: PATH
           value: $env:PATH;$env:USERPROFILE\scoop\shims
-
-      - name: Checkout and install Scoop packages
-        uses: actions/checkout@v3
-        with:
-          path: main
+      - name: Install Scoop packages
+        shell: pwsh
         run: |
-          .\main\scripts\windows-scoop-packages.ps1
+          Invoke-Command -FilePath .\main\scripts\windows-scoop-packages.ps1 -ComputerName "Administrator"
       - name: Download
         run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
       - name: Extract
