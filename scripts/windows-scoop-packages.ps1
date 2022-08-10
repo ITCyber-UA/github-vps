@@ -20,7 +20,7 @@ scoop bucket add hoilc https://github.com/hoilc/scoop-lemon
 
 
 # cmd:
-scoop install curl wget aria2 nano neovim
+scoop install curl wget aria2 nano neovim sudo
 
 # wget https://aka.ms/getwinget
 # Add-AppPackage -path .\getwinget
