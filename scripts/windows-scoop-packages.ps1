@@ -46,14 +46,13 @@ git config --global diff.colorMoved zebra
 git config --global user.name "ifuad"
 git config --global user.email "i.fuad.tm@gmail.com"
 
-exit
 
 scoop install clink busybox ripgrep ag fzf
 clink autorun install
 scoop install scoop-completion
 scoop install main/clink-completions
 
-
+exit
 
 
 echo @'
