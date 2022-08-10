@@ -1,4 +1,4 @@
-::#region start
+# ::#region start
 
 # poweshell:
 
@@ -105,19 +105,19 @@ scoop install extras/windirstat
 
 sudo choco install winbtrfs
 sudo choco install ext2fsd
-::#endregion
+# ::#endregion
 
-::#region scoop directory search links
+# ::#region scoop directory search links
 scoop install scoop-search
 wget https://raw.githubusercontent.com/zhoujin7/scoop-search/master/scoopSearch.ps1
 Install-Module ps2exe
 Invoke-ps2exe .\scoopSearch.ps1 .\scoopSearch.exe
 mv .\scoopSearch.exe %UserProfile%\scoop\shims\scoopSearch.exe
 echo path = %UserProfile%\scoop\shims\scoopSearch.exe | tee scoop\shims\scoopSearch.shim
-::#endregion
+# ::#endregion
 
 
-::#region apps
+# ::#region apps
 scoop install extras/notepadplusplus googlechrome vlc neovim superf4 meld jq
 # scoop install vscode
 # winget install -e --id Microsoft.VisualStudioCode
@@ -136,9 +136,9 @@ setx VCTargetsPath "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBu
 # sudo choco install files 
 
 scoop install flux watchexec 
-::#endregion
+# ::#endregion
 
-::#region development
+# ::#region development
 
 scoop install nvm pyenv poetry
 pyenv install 3.7.2
@@ -196,10 +196,10 @@ scoop install php-xdebug
 winget install --id=ProtonTechnologies.ProtonVPN -e
 
 scoop bucket add Syndim https://github.com/Syndim/scoop-bucket && scoop install Syndim/bore # ngrok alternative for tcp rdp # usage for rdp: bore local -p 3389 --to bore.pub 3389
-::#endregion
+# ::#endregion
 
 
-::#region work dev
+# ::#region work dev
 scoop bucket add yzlc https://github.com/yzlc/scoop
 scoop install yzlc/fortiClient
 
@@ -228,7 +228,7 @@ wget https://www.firewall.cx/downloads/cisco-tools-a-applications/170-sonicwall-
 # "Cisco Systems VPN Adapter for 64-bit Windows"
 
 
-::#endregion
+# ::#endregion
 
 choco install choco-cleaner
 dos2unix.exe %USERPROFILE%/scoop/apps/pyenv/current/pyenv-win/shims/python3
