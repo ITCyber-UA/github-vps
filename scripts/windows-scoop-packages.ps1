@@ -2,12 +2,6 @@
 
 # poweshell:
 
-wget https://aka.ms/getwinget
-Add-AppPackage -path .\getwinget
-
-# chocolatey admin install
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-
 
 scoop bucket add extras
 scoop bucket add AntonOks  https://github.com/AntonOks/scoop-aoks
@@ -27,6 +21,13 @@ scoop bucket add hoilc https://github.com/hoilc/scoop-lemon
 
 # cmd:
 scoop install curl wget aria2 nano neovim
+
+wget https://aka.ms/getwinget
+Add-AppPackage -path .\getwinget
+
+# chocolatey admin install
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
 scoop config aria2-warning-enabled false
 # scoop install git
 winget install --id Git.Git -e --source winget
