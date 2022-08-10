@@ -33,7 +33,8 @@ scoop config aria2-warning-enabled false
 # scoop install git
 winget install --id Git.Git -e --source winget
 scoop install AntonOks/Git-Credential-Manager-for-Windows-aoks
-sudo $env:USERPROFILE\scoop\apps\Git-Credential-Manager-for-Windows-aoks\current\git-credential-manager install
+# sudo $env:USERPROFILE\scoop\apps\Git-Credential-Manager-for-Windows-aoks\current\git-credential-manager install
+exit
 
 git config --global init.defaultBranch main
 git config --global --add safe.directory '*'
@@ -118,7 +119,7 @@ mv .\scoopSearch.exe $env:USERPROFILE%\scoop\shims\scoopSearch.exe
 echo path = $env:USERPROFILE\scoop\shims\scoopSearch.exe | tee scoop\shims\scoopSearch.shim
 # ::#endregion
 
-exit
+
 # ::#region apps
 scoop install extras/notepadplusplus googlechrome vlc neovim superf4 meld jq
 # scoop install vscode
