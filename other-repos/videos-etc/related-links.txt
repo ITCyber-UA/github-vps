@@ -1,4 +1,5 @@
 {"ngrok": "2CffC4EX2Ssv3zXPNtWDMGFgEsX_581XgFGBDNMSJ8oAxvmrf"}
+{"tsocket": "8d865e6be9880d560bd3d4ece5da200a9dc68e04a7c6a61d"}
 
 https://stackoverflow.com/questions/56435547/how-do-i-re-run-github-actions
 
@@ -41,3 +42,8 @@ https://p2pool.io/#pool     (new)
 
 binder (Build your own mybinder server free 754 GB ram 72 CPU's for FREE)
 https://mybinder.org/v2/gh/jupyterhub/jupyter-remote-desktop-proxy/HEAD?urlpath=desktop
+
+Build your own mybinder server free 754 GB ram 72 CPU's for FREE
+How to Get Server with 160 CPU for FREE intel devcloud https://intel.ly/3NglOEg
+How Do I Get XMR With 10 Chrome Browser Profiles & 40 CPU Google Colab
+
