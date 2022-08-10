@@ -48,11 +48,11 @@ git config --global user.email "i.fuad.tm@gmail.com"
 
 
 scoop install clink busybox ripgrep ag fzf
-clink autorun install
+cmd /c "clink autorun install"
 scoop install scoop-completion
 scoop install main/clink-completions
 
-exit
+
 
 
 echo @'
@@ -83,11 +83,12 @@ dotnet="%UserProfile%\scoop\apps\dotnet6-sdk\current\dotnet.exe" $*
 dotnetlts-release-url=curl -s https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json | jq .\"releases-index\" | jq .[] | jq select(.\"support-phase\"==\"lts\") | jq -c "select(.\"channel-version\" | contains(\"$1\"))" | jq .\"releases.json\"
 powershell2=C:\Program Files\PowerShell-7.2.2-win-x64\pwsh.exe $*
 '@ > $env:LOCALAPPDATA\clink\aliases
-clink autorun install "%UserProfile%\scoop\apps\clink\current\clink.bat inject --autorun && doskey /macrofile=%LOCALAPPDATA%\clink\aliases"
+cmd /c "clink autorun install '%UserProfile%\scoop\apps\clink\current\clink.bat inject --autorun && doskey /macrofile=%LOCALAPPDATA%\clink\aliases'"
 clink set autosuggest.enable true
 clink set history_io 1
 clink set clink.autoupdate false
 
+exit
 
 scoop install gh
 # gh auth login
