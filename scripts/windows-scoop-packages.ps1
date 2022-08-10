@@ -33,7 +33,7 @@ scoop config aria2-warning-enabled false
 # scoop install git
 winget install --id Git.Git -e --source winget
 scoop install AntonOks/Git-Credential-Manager-for-Windows-aoks
-sudo %userprofile%\scoop\apps\Git-Credential-Manager-for-Windows-aoks\current\git-credential-manager install
+sudo $env:USERPROFILE\scoop\apps\Git-Credential-Manager-for-Windows-aoks\current\git-credential-manager install
 
 git config --global init.defaultBranch main
 git config --global --add safe.directory '*'
@@ -83,7 +83,7 @@ code-python=code "%USERPROFILE%\git-repos\tradernet-scripts"
 dotnet="%UserProfile%\scoop\apps\dotnet6-sdk\current\dotnet.exe" $*
 dotnetlts-release-url=curl -s https://dotnetcli.blob.core.windows.net/dotnet/release-metadata/releases-index.json | jq .\"releases-index\" | jq .[] | jq select(.\"support-phase\"==\"lts\") | jq -c "select(.\"channel-version\" | contains(\"$1\"))" | jq .\"releases.json\"
 powershell2=C:\Program Files\PowerShell-7.2.2-win-x64\pwsh.exe $*
-'@ > %LOCALAPPDATA%\clink\aliases
+'@ > $env:LOCALAPPDATA\clink\aliases
 clink autorun install "%UserProfile%\scoop\apps\clink\current\clink.bat inject --autorun && doskey /macrofile=%LOCALAPPDATA%\clink\aliases"
 clink set autosuggest.enable true
 clink set history_io 1
@@ -114,8 +114,8 @@ scoop install scoop-search
 wget https://raw.githubusercontent.com/zhoujin7/scoop-search/master/scoopSearch.ps1
 Install-Module ps2exe
 Invoke-ps2exe .\scoopSearch.ps1 .\scoopSearch.exe
-mv .\scoopSearch.exe %UserProfile%\scoop\shims\scoopSearch.exe
-echo path = %UserProfile%\scoop\shims\scoopSearch.exe | tee scoop\shims\scoopSearch.shim
+mv .\scoopSearch.exe $env:USERPROFILE%\scoop\shims\scoopSearch.exe
+echo path = $env:USERPROFILE\scoop\shims\scoopSearch.exe | tee scoop\shims\scoopSearch.shim
 # ::#endregion
 
 
@@ -150,8 +150,8 @@ pyenv exec pip install pipenv
 pyenv rehash
 scoop install backit/pathman 
 scoop install gtools
-pathed /USER /APPEND %UserProfile%\AppData\Roaming\Python\Python37\Scripts
-pathed /USER /APPEND %UserProfile%\scoop\apps\pyenv\current\pyenv-win\versions\3.7.2\Scripts
+pathed /USER /APPEND $env:USERPROFILE\AppData\Roaming\Python\Python37\Scripts
+pathed /USER /APPEND $env:USERPROFILE\scoop\apps\pyenv\current\pyenv-win\versions\3.7.2\Scripts
 poetry config virtualenvs.in-project true
 python -m pip install --upgrade pip
 scoop install versions/python27
@@ -233,4 +233,4 @@ wget https://www.firewall.cx/downloads/cisco-tools-a-applications/170-sonicwall-
 # ::#endregion
 
 choco install choco-cleaner
-dos2unix.exe %USERPROFILE%/scoop/apps/pyenv/current/pyenv-win/shims/python3
+dos2unix.exe $env:USERPROFILE/scoop/apps/pyenv/current/pyenv-win/shims/python3
