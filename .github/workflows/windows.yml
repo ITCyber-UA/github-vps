@@ -1,0 +1,63 @@
+name: rdp-windows
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  rdp:
+    runs-on: windows-latest
+    steps:
+      - name: Install Scoop Package Manager
+        run: |
+          irm get.scoop.sh -outfile 'install.ps1'
+          iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
+      - name: add scoop shims path to PATH environment variable
+        uses: myci-actions/export-env-var-powershell@1
+        with:
+          name: PATH
+          value: $env:PATH;$env:USERPROFILE\scoop\shims
+      - name: Scoop add buckets and install packages
+        run: |
+          scoop install git wget curl aria2
+          echo @'
+          echo root: %userprofile%\AppData\Roaming\nvm  
+          path: C:\Program Files\nodejs 
+          '@ > c:\settings.txt
+          nvm install latest
+          nvm install 14.15.4
+          nvm on
+          npm install yarn -g
+          yarn config set network-timeout 600000 -g
+          npm install -g localtunnel
+      - name: Download
+        run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
+      - name: Extract
+        run: Expand-Archive ngrok.zip
+      - name: Auth
+        run: .\ngrok\ngrok.exe authtoken ${{ secrets.NGROK_AUTH_TOKEN }}
+      - name: Enable TS
+        run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
+      - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+      - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
+
+      - name: Create user account
+        run: Invoke-WebRequest https://raw.githubusercontent.com/sddvsdf/connect-ci-runner-machine/main/scripts/windows-user-create.bat -OutFile windows-user-create.bat && cmd /c .\windows-user-create.bat
+      - name: Create Tunnel
+        run: .\ngrok\ngrok.exe tcp 3389
+
+      - name: Get URL
+        id: vars
+        run: echo "::set-output name=url::$(curl -s localhost:4040/api/tunnels | jq -r .tunnels[0].public_url)"
+
+      - name: Export variable for next jobs
+        uses: UnlyEd/github-action-store-variable@v2.1.0
+        with:
+          variables: |
+            NGROK_ENDPOINT=${{ steps.vars.outputs.url }}
+
+      - name: Debug output
+        uses: hmarr/debug-action@v2
+
+      - name: Wait
+        run: sleep 21000
