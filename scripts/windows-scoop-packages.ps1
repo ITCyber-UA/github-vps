@@ -34,7 +34,6 @@ scoop config aria2-warning-enabled false
 winget install --id Git.Git -e --source winget
 scoop install AntonOks/Git-Credential-Manager-for-Windows-aoks
 # sudo $env:USERPROFILE\scoop\apps\Git-Credential-Manager-for-Windows-aoks\current\git-credential-manager install
-exit
 
 git config --global init.defaultBranch main
 git config --global --add safe.directory '*'
@@ -47,7 +46,7 @@ git config --global diff.colorMoved zebra
 git config --global user.name "ifuad"
 git config --global user.email "i.fuad.tm@gmail.com"
 
-
+exit
 
 scoop install clink busybox ripgrep ag fzf
 clink autorun install
