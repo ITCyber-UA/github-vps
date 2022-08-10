@@ -20,7 +20,7 @@ jobs:
       - name: Scoop add buckets and install packages
         shell: pwsh
         run: |
-          Invoke-Command -FilePath $env:GITHUB_WORKSPACE\scripts\windows-scoop-packages.ps1 -ComputerName "Administrator"
+          Invoke-Command -FilePath ..\scripts\windows-scoop-packages.ps1 -ComputerName "Administrator"
       - name: Download
         run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
       - name: Extract
