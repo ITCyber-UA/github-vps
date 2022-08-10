@@ -22,8 +22,9 @@ scoop bucket add hoilc https://github.com/hoilc/scoop-lemon
 # cmd:
 scoop install curl wget aria2 nano neovim
 
-wget https://aka.ms/getwinget
-Add-AppPackage -path .\getwinget
+# wget https://aka.ms/getwinget
+# Add-AppPackage -path .\getwinget
+scoop install main/winget
 
 # chocolatey admin install
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
