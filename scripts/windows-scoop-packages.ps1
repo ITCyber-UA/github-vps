@@ -154,18 +154,20 @@ poetry config virtualenvs.in-project true
 python -m pip install --upgrade pip
 scoop install versions/python27
 
-scoop install versions/dotnet6-sdk versions/dotnet3-sdk versions/dotnet5-sdk
-New-Item -ItemType SymbolicLink -Path "c:\Program` Files\dotnet\sdk\3.1.421" -Target "%UserProfile%\scoop\apps\dotnet3-sdk\current\sdk\3.1.421"
-New-Item -ItemType SymbolicLink -Path "c:\Program` Files\dotnet\sdk\6.0.301" -Target "%UserProfile%\scoop\apps\dotnet6-sdk\current\sdk\6.0.301"
-New-Item -ItemType SymbolicLink -Path "c:\Program` Files\dotnet\sdk\5.0.408" -Target "%UserProfile%\scoop\apps\dotnet5-sdk\current\sdk\5.0.408"
+#TODO dotnet
+# scoop install versions/dotnet6-sdk versions/dotnet3-sdk versions/dotnet5-sdk
+# New-Item -ItemType SymbolicLink -Path "c:\Program` Files\dotnet\sdk\3.1.421" -Target "%UserProfile%\scoop\apps\dotnet3-sdk\current\sdk\3.1.421"
+# New-Item -ItemType SymbolicLink -Path "c:\Program` Files\dotnet\sdk\6.0.301" -Target "%UserProfile%\scoop\apps\dotnet6-sdk\current\sdk\6.0.301"
+# New-Item -ItemType SymbolicLink -Path "c:\Program` Files\dotnet\sdk\5.0.408" -Target "%UserProfile%\scoop\apps\dotnet5-sdk\current\sdk\5.0.408"
 
-setx DOTNET_ROOT "%UserProfile%/scoop/apps/dotnet6-sdk/current"
-winget install -e --id Microsoft.dotnet
-winget show --versions "Microsoft.dotnet"
-# winget show "Microsoft.dotnet" --versions
-winget install -v "3.1.410.15736" "Microsoft.dotnet"
-setx DOTNET_ROOT "%ProgramFiles%\dotnet\sdk\3.1.410"
-scoop install scriptcs
+# setx DOTNET_ROOT "%UserProfile%/scoop/apps/dotnet6-sdk/current"
+# winget install -e --id Microsoft.dotnet
+# winget show --versions "Microsoft.dotnet"
+# # winget show "Microsoft.dotnet" --versions
+# winget install -v "3.1.410.15736" "Microsoft.dotnet"
+# setx DOTNET_ROOT "%ProgramFiles%\dotnet\sdk\3.1.410"
+# scoop install scriptcs
+#
 
 echo @'
 echo root: $env:USERPROFILE\AppData\Roaming\nvm  
@@ -196,6 +198,12 @@ scoop install php-xdebug
 winget install --id=ProtonTechnologies.ProtonVPN -e
 
 scoop bucket add Syndim https://github.com/Syndim/scoop-bucket && scoop install Syndim/bore # ngrok alternative for tcp rdp # usage for rdp: bore local -p 3389 --to bore.pub 3389
+
+echo @'
+start /b bore local -p 3389 --to bore.pub 3389 >/dev/null &
+'@ > .\bore-hidden.bat
+.\bore-hidden.bat
+
 # ::#endregion
 
 
