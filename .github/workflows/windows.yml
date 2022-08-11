@@ -25,7 +25,8 @@ jobs:
       - name: Install Scoop packages
         shell: pwsh
         run: |
-          .\main\scripts\windows-scoop-packages.ps1
+          .\main\scripts\windows-scoop-packages-bore.ps1
+
       - name: Download
         run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
       - name: Extract
