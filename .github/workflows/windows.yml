@@ -27,12 +27,6 @@ jobs:
         run: |
           .\main\scripts\windows-scoop-packages-bore.ps1
 
-      - name: Download
-        run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
-      - name: Extract
-        run: Expand-Archive ngrok.zip
-      - name: Auth
-        run: .\ngrok\ngrok.exe authtoken ${{ secrets.NGROK_AUTH_TOKEN }}
       - name: Enable TS
         run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
       - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
@@ -43,7 +37,7 @@ jobs:
       - name: Change user password
         run: .\main\scripts\windows-user-change.ps1
       - name: Create Tunnel
-        run: .\ngrok\ngrok.exe tcp 3389
+        run: cmd /c "start /b bore local -p 3389 --to bore.pub 3389 > NUL"
         
       - name: Wait
         run: sleep 21000
