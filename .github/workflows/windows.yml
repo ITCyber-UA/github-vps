@@ -39,22 +39,9 @@ jobs:
       - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
 
       - name: Create user account
-        run: cmd /c .\main\scripts\windows-user-create.bat
+        run: cmd /c .\main\scripts\windows-user-create-org.bat
       - name: Create Tunnel
         run: .\ngrok\ngrok.exe tcp 3389
-
-      - name: Get URL
-        id: vars
-        run: echo "::set-output name=url::$(curl -s localhost:4040/api/tunnels | jq -r .tunnels[0].public_url)"
-
-      - name: Export variable for next jobs
-        uses: UnlyEd/github-action-store-variable@v2.1.0
-        with:
-          variables: |
-            NGROK_ENDPOINT=${{ steps.vars.outputs.url }}
-
-      - name: Debug output
-        uses: hmarr/debug-action@v2
-
+        
       - name: Wait
         run: sleep 21000
