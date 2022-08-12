@@ -1,0 +1,1 @@
+net user Administrator $env:VNC_USER_PASSWORD > $null

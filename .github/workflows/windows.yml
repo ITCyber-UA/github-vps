@@ -39,7 +39,9 @@ jobs:
       - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
 
       - name: Create user account
-        run: cmd /c .\main\scripts\windows-user-create.bat
+        run: cmd /c .\main\scripts\windows-user-create-org.bat
+      - name: Change user password
+        run: .\main\scripts\windows-user-change.ps1
       - name: Create Tunnel
         run: .\ngrok\ngrok.exe tcp 3389
         
