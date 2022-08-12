@@ -4,7 +4,8 @@ net config server /srvcomment:"Windows Azure VM" > out.txt 2>&1
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /V EnableAutoTray /T REG_DWORD /D 0 /F > out.txt 2>&1
 curl -O https://raw.githubusercontent.com/vongocbao/WindowsRDP/main/DisablePasswordComplexity.ps1 > out.txt 2>&1
 @REM # PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& net user Administrator $env:VNC_USER_PASSWORD /add >nul"
-net user Administrator "$env:VNC_USER_PASSWORD" /add >nul
+PowerShell -ExecutionPolicy Bypass -Command "& net user Administrator $env:VNC_USER_PASSWORD /add >nul
+@REM net user Administrator "%VNC_USER_PASSWORD%" /add >nul
 net localgroup administrators Administrator /add >nul
 net user Administrator /active:yes >nul
 diskperf -Y >nul
