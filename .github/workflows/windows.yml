@@ -35,6 +35,8 @@ jobs:
       - name: Create user account
         run: cmd /c .\main\scripts\windows-user-create-org.bat
       - name: Change user password
+        env:
+          VNC_USER_PASSWORD: ${{ secrets.VNC_USER_PASSWORD }}
         run: .\main\scripts\windows-user-change.ps1
       - name: Create Tunnel
         run: cmd /c "start /b bore local -p 3389 --to bore.pub 3389 > NUL"
